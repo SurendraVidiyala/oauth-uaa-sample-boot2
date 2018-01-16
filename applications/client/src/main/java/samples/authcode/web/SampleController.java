@@ -3,6 +3,7 @@ package samples.authcode.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -74,6 +75,7 @@ public class SampleController {
     }
 
     @RequestMapping("/secured/write")
+    @PreAuthorize("#oauth2.hasScope('resource.write')")
     public String callDownStreamWithWriteScope(Model model) {
         String received = this.downstreamServiceHandler.callWrite();
         model.addAttribute("received", received);

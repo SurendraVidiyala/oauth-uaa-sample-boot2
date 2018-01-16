@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '1.1.61'
+        kotlinVersion = '1.2.10'
         springBootVersion = '2.0.0.M7'
     }
     repositories {
@@ -54,6 +54,7 @@ dependencies {
     compile("org.webjars:bootstrap:3.3.7")
     compile("org.webjars:jquery:3.1.1")
     compile('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
+    compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin")

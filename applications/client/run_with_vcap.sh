@@ -1,5 +1,15 @@
 read -r -d '' VCAP_APPLICATION <<'ENDOFVAR'
-{"application_version":"1","application_name":"sample-client","application_uris":[""],"version":"1.0","name":"sample-client","instance_id":"abcd","instance_index":0}
+{
+  "application_version": "1",
+  "application_name": "sample-client",
+  "application_uris": [
+    ""
+  ],
+  "version": "1.0",
+  "name": "sample-client",
+  "instance_id": "abcd",
+  "instance_index": 0
+}
 ENDOFVAR
 
 export VCAP_APPLICATION=$VCAP_APPLICATION
