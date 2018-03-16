@@ -37,9 +37,6 @@ public class SampleController {
     private String clientId;
 
     @Autowired
-    private OAuth2ClientContext oAuth2ClientContext;
-
-    @Autowired
     private DownstreamServiceHandler downstreamServiceHandler;
 
     @Autowired

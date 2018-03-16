@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.0.M7'
-        kotlinVersion = '1.2.10'
+        springBootVersion = '2.0.0.RELEASE'
+        kotlinVersion = '1.2.20'
     }
     repositories {
         mavenCentral()
@@ -21,6 +21,18 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
 
 ext {
     sourceCompatibility = 1.8
@@ -41,20 +53,20 @@ repositories {
 
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-oauth2'
-    compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.BUILD-SNAPSHOT")
+    compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.security:spring-security-jwt')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin")
 }
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.M5"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.M8"
     }
 }

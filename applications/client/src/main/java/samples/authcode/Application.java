@@ -16,8 +16,6 @@ public class Application {
 	private String resourceServerUrl;
 
 	public static void main(String[] args) {
-		if ("true".equals(System.getenv("SKIP_SSL_VALIDATION")))
-			SSLValidationDisabler.disableSSLValidation();
 		SpringApplication.run(Application.class, args);
 	}
 

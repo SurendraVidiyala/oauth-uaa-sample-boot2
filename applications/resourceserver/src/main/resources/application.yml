@@ -5,13 +5,17 @@ spring:
   thymeleaf:
     cache: false
 security:
-  ignored: /favicon.ico, /
   basic:
-    enabled: false
   oauth2:
     client:
       client-id: resource1
       client-secret: resource1
+      grant-type: client_credentials
+      scope: 
+        - resource.read
+        - resource.write
+      access-token-uri: ${ssoServiceUrl}/oauth/token
+      user-authorization-uri: ${ssoServiceUrl}/oauth/authorize
     resource:
       token-info-uri: ${ssoServiceUrl}/oauth/check_token
       jwt:
